@@ -160,7 +160,7 @@ public class ViewListProduct extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewListProduct().setVisible(true);
+                new ViewAddUser().setVisible(true);
             }
         });
     }
