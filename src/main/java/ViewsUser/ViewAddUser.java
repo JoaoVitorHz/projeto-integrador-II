@@ -65,7 +65,7 @@ public class ViewAddUser extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Cadastrar Produtos");
+        jLabel7.setText("Cadastrar Usuario");
 
         btnBackListUser.setBackground(new java.awt.Color(71, 71, 135));
         btnBackListUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -84,7 +84,7 @@ public class ViewAddUser extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                 .addComponent(btnBackListUser)
                 .addGap(23, 23, 23))
         );

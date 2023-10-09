@@ -34,7 +34,8 @@ public class ViewMenu extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btnBackListUser = new javax.swing.JButton();
         btnUser = new javax.swing.JButton();
-        btnRelatorios = new javax.swing.JButton();
+        btnAnalyticalReport = new javax.swing.JButton();
+        btnSyntheticReport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,13 +107,23 @@ public class ViewMenu extends javax.swing.JFrame {
             }
         });
 
-        btnRelatorios.setBackground(new java.awt.Color(71, 71, 135));
-        btnRelatorios.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRelatorios.setForeground(new java.awt.Color(255, 255, 255));
-        btnRelatorios.setText("Relatorios");
-        btnRelatorios.addActionListener(new java.awt.event.ActionListener() {
+        btnAnalyticalReport.setBackground(new java.awt.Color(71, 71, 135));
+        btnAnalyticalReport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAnalyticalReport.setForeground(new java.awt.Color(255, 255, 255));
+        btnAnalyticalReport.setText("Relatório Analítico");
+        btnAnalyticalReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRelatoriosActionPerformed(evt);
+                btnAnalyticalReportActionPerformed(evt);
+            }
+        });
+
+        btnSyntheticReport.setBackground(new java.awt.Color(71, 71, 135));
+        btnSyntheticReport.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSyntheticReport.setForeground(new java.awt.Color(255, 255, 255));
+        btnSyntheticReport.setText("Relatório Sintético");
+        btnSyntheticReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSyntheticReportActionPerformed(evt);
             }
         });
 
@@ -120,35 +131,37 @@ public class ViewMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(116, 116, 116)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAnalyticalReport)
+                            .addComponent(btnVendas)
+                            .addComponent(btnSyntheticReport))
+                        .addContainerGap(137, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnUser)
-                            .addComponent(btnProduct)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRelatorios)
-                            .addComponent(btnVendas))
-                        .addGap(63, 63, 63)))
-                .addContainerGap(131, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnProduct))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVendas)
-                .addGap(30, 30, 30)
-                .addComponent(btnRelatorios)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAnalyticalReport)
+                .addGap(18, 18, 18)
+                .addComponent(btnSyntheticReport)
+                .addGap(18, 18, 18)
                 .addComponent(btnProduct)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(btnUser)
-                .addGap(30, 30, 30))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -175,13 +188,21 @@ public class ViewMenu extends javax.swing.JFrame {
 
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
         // TODO add your handling code here:
-          new ViewsUser.ViewListUser().setVisible(true);
+        new ViewsUser.ViewListUser().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnUserActionPerformed
 
-    private void btnRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatoriosActionPerformed
+    private void btnAnalyticalReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalyticalReportActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRelatoriosActionPerformed
+        new ViewsReport.ViewAnalyticalReport().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAnalyticalReportActionPerformed
+
+    private void btnSyntheticReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSyntheticReportActionPerformed
+        // TODO add your handling code here:
+        new ViewsReport.ViewSyntheticReport().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnSyntheticReportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,9 +240,10 @@ public class ViewMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAnalyticalReport;
     private javax.swing.JButton btnBackListUser;
     private javax.swing.JButton btnProduct;
-    private javax.swing.JButton btnRelatorios;
+    private javax.swing.JButton btnSyntheticReport;
     private javax.swing.JButton btnUser;
     private javax.swing.JButton btnVendas;
     private javax.swing.JLabel jLabel7;
