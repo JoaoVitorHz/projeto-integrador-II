@@ -28,28 +28,28 @@ public class ViewAddUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtUserName = new javax.swing.JTextField();
-        btnAddUser = new javax.swing.JButton();
+        txtClientName = new javax.swing.JTextField();
+        btnAddClient = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtLastNameUser = new javax.swing.JTextField();
+        txtLastNameClient = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtEmailUser = new javax.swing.JTextField();
+        txtEmailClient = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtCpfUser = new javax.swing.JTextField();
+        txtCpfClient = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        btnBackListUser = new javax.swing.JButton();
+        btnBackListClient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnAddUser.setBackground(new java.awt.Color(71, 71, 135));
-        btnAddUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddUser.setText("Adicionar");
-        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
+        btnAddClient.setBackground(new java.awt.Color(71, 71, 135));
+        btnAddClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddClient.setText("Adicionar");
+        btnAddClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddUserActionPerformed(evt);
+                btnAddClientActionPerformed(evt);
             }
         });
 
@@ -65,15 +65,15 @@ public class ViewAddUser extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Cadastrar Usuario");
+        jLabel7.setText("Cadastrar Cliente");
 
-        btnBackListUser.setBackground(new java.awt.Color(71, 71, 135));
-        btnBackListUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBackListUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnBackListUser.setText("Voltar");
-        btnBackListUser.addActionListener(new java.awt.event.ActionListener() {
+        btnBackListClient.setBackground(new java.awt.Color(71, 71, 135));
+        btnBackListClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBackListClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackListClient.setText("Voltar");
+        btnBackListClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackListUserActionPerformed(evt);
+                btnBackListClientActionPerformed(evt);
             }
         });
 
@@ -84,8 +84,8 @@ public class ViewAddUser extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
-                .addComponent(btnBackListUser)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
+                .addComponent(btnBackListClient)
                 .addGap(23, 23, 23))
         );
         jPanel1Layout.setVerticalGroup(
@@ -94,7 +94,7 @@ public class ViewAddUser extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(btnBackListUser))
+                    .addComponent(btnBackListClient))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -114,13 +114,13 @@ public class ViewAddUser extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmailUser, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLastNameUser, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCpfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtEmailClient, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLastNameClient, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCpfClient, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(198, 198, 198)
-                        .addComponent(btnAddUser)))
+                        .addComponent(btnAddClient)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -129,61 +129,61 @@ public class ViewAddUser extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtLastNameUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLastNameClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmailUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmailClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCpfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCpfClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(43, 43, 43)
-                .addComponent(btnAddUser)
+                .addComponent(btnAddClient)
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
+    private void btnAddClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClientActionPerformed
         // TODO add your handling code here:
-        if(txtUserName.getText().isEmpty()){
+        if(txtClientName.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o nome do usuario");
         } 
-        else if(!txtUserName.getText().matches("[^0-9.]+")){
+        else if(!txtClientName.getText().matches("[^0-9.]+")){
             JOptionPane.showMessageDialog(this, "Nome do usuario deve conter apenas numeros");
         }
-        else if(txtLastNameUser.getText().isEmpty()){
+        else if(txtLastNameClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o sobrenome do usuario");
         } 
-        else if(!txtLastNameUser.getText().matches("[^0-9.]+")){
+        else if(!txtLastNameClient.getText().matches("[^0-9.]+")){
             JOptionPane.showMessageDialog(this, "Sobrenome do usuario deve conter apenas numeros");
         }
-        else if(txtEmailUser.getText().isEmpty()){
+        else if(txtEmailClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o E-mail do usuario");
         }
-        else if(txtCpfUser.getText().isEmpty()){
+        else if(txtCpfClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o cpf do usuario");
         }
         try {
-            int retorno = Integer.parseInt(txtCpfUser.getText());
+            int retorno = Integer.parseInt(txtCpfClient.getText().trim());
         } catch (Exception e) {
             //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
             JOptionPane.showMessageDialog(this, "Por favor insira apenas números no CPF");
         }
-    }//GEN-LAST:event_btnAddUserActionPerformed
+    }//GEN-LAST:event_btnAddClientActionPerformed
 
-    private void btnBackListUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListUserActionPerformed
+    private void btnBackListClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListClientActionPerformed
         // TODO add your handling code here:
         new ViewListUser().setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnBackListUserActionPerformed
+    }//GEN-LAST:event_btnBackListClientActionPerformed
     
     /**
      * @param args the command line arguments
@@ -221,17 +221,17 @@ public class ViewAddUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddUser;
-    private javax.swing.JButton btnBackListUser;
+    private javax.swing.JButton btnAddClient;
+    private javax.swing.JButton btnBackListClient;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtCpfUser;
-    private javax.swing.JTextField txtEmailUser;
-    private javax.swing.JTextField txtLastNameUser;
-    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtClientName;
+    private javax.swing.JTextField txtCpfClient;
+    private javax.swing.JTextField txtEmailClient;
+    private javax.swing.JTextField txtLastNameClient;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,9 +28,9 @@ public class ViewListUser extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnInsertUser = new javax.swing.JButton();
-        btnUpdateUser = new javax.swing.JButton();
-        btnDeleteUser = new javax.swing.JButton();
+        btnInsertClient = new javax.swing.JButton();
+        btnUpdateClient = new javax.swing.JButton();
+        btnDeleteClient = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnBackMenu = new javax.swing.JButton();
@@ -50,33 +50,33 @@ public class ViewListUser extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnInsertUser.setBackground(new java.awt.Color(71, 71, 135));
-        btnInsertUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnInsertUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnInsertUser.setText("Cadastro de Usuarios");
-        btnInsertUser.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertClient.setBackground(new java.awt.Color(71, 71, 135));
+        btnInsertClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnInsertClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnInsertClient.setText("Cadastro de cliente");
+        btnInsertClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertUserActionPerformed(evt);
+                btnInsertClientActionPerformed(evt);
             }
         });
 
-        btnUpdateUser.setBackground(new java.awt.Color(71, 71, 135));
-        btnUpdateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnUpdateUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdateUser.setText("Alterar Usuario");
-        btnUpdateUser.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateClient.setBackground(new java.awt.Color(71, 71, 135));
+        btnUpdateClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdateClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateClient.setText("Alterar cliente");
+        btnUpdateClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateUserActionPerformed(evt);
+                btnUpdateClientActionPerformed(evt);
             }
         });
 
-        btnDeleteUser.setBackground(new java.awt.Color(71, 71, 135));
-        btnDeleteUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnDeleteUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeleteUser.setText("Deletar usuario");
-        btnDeleteUser.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteClient.setBackground(new java.awt.Color(71, 71, 135));
+        btnDeleteClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDeleteClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeleteClient.setText("Deletar cliente");
+        btnDeleteClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteUserActionPerformed(evt);
+                btnDeleteClientActionPerformed(evt);
             }
         });
 
@@ -84,7 +84,7 @@ public class ViewListUser extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Listagem de Usuario");
+        jLabel7.setText("Listagem de Cliente");
 
         btnBackMenu.setBackground(new java.awt.Color(71, 71, 135));
         btnBackMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -103,7 +103,7 @@ public class ViewListUser extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 380, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
                 .addComponent(btnBackMenu)
                 .addGap(23, 23, 23))
         );
@@ -127,11 +127,11 @@ public class ViewListUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnInsertUser)
+                        .addComponent(btnInsertClient)
                         .addGap(18, 18, 18)
-                        .addComponent(btnUpdateUser)
+                        .addComponent(btnUpdateClient)
                         .addGap(18, 18, 18)
-                        .addComponent(btnDeleteUser)
+                        .addComponent(btnDeleteClient)
                         .addGap(51, 51, 51)))
                 .addGap(34, 34, 34))
         );
@@ -143,32 +143,32 @@ public class ViewListUser extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsertUser)
-                    .addComponent(btnUpdateUser)
-                    .addComponent(btnDeleteUser))
+                    .addComponent(btnInsertClient)
+                    .addComponent(btnUpdateClient)
+                    .addComponent(btnDeleteClient))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnInsertUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertUserActionPerformed
+    private void btnInsertClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertClientActionPerformed
         // TODO add your handling code here:
         new ViewsUser.ViewAddUser().setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnInsertUserActionPerformed
+    }//GEN-LAST:event_btnInsertClientActionPerformed
 
-    private void btnUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUserActionPerformed
+    private void btnUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateClientActionPerformed
         // TODO add your handling code here:
         new ViewsUser.ViewUpdateUser().setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnUpdateUserActionPerformed
+    }//GEN-LAST:event_btnUpdateClientActionPerformed
 
-    private void btnDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteUserActionPerformed
+    private void btnDeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteClientActionPerformed
         // TODO add your handling code here:
         new ViewsUser.ViewDeleteUser().setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnDeleteUserActionPerformed
+    }//GEN-LAST:event_btnDeleteClientActionPerformed
 
     private void btnBackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMenuActionPerformed
         // TODO add your handling code here:
@@ -213,9 +213,9 @@ public class ViewListUser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackMenu;
-    private javax.swing.JButton btnDeleteUser;
-    private javax.swing.JButton btnInsertUser;
-    private javax.swing.JButton btnUpdateUser;
+    private javax.swing.JButton btnDeleteClient;
+    private javax.swing.JButton btnInsertClient;
+    private javax.swing.JButton btnUpdateClient;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

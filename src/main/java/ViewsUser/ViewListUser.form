@@ -29,11 +29,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" alignment="1" min="-2" pref="568" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnInsertUser" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnInsertClient" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnUpdateUser" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnUpdateClient" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnDeleteUser" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDeleteClient" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -49,9 +49,9 @@
               <Component id="jScrollPane1" min="-2" pref="158" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnInsertUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnUpdateUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnDeleteUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnInsertClient" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnUpdateClient" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDeleteClient" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
@@ -106,7 +106,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnInsertUser">
+    <Component class="javax.swing.JButton" name="btnInsertClient">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="87" green="47" red="47" type="rgb"/>
@@ -117,13 +117,13 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cadastro de Usuarios"/>
+        <Property name="text" type="java.lang.String" value="Cadastro de cliente"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertUserActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertClientActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnUpdateUser">
+    <Component class="javax.swing.JButton" name="btnUpdateClient">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="87" green="47" red="47" type="rgb"/>
@@ -134,13 +134,13 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Alterar Usuario"/>
+        <Property name="text" type="java.lang.String" value="Alterar cliente"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateUserActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateClientActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnDeleteUser">
+    <Component class="javax.swing.JButton" name="btnDeleteClient">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="87" green="47" red="47" type="rgb"/>
@@ -151,10 +151,10 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Deletar usuario"/>
+        <Property name="text" type="java.lang.String" value="Deletar cliente"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteUserActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteClientActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
@@ -170,7 +170,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="380" max="32767" attributes="0"/>
+                  <EmptySpace pref="386" max="32767" attributes="0"/>
                   <Component id="btnBackMenu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
@@ -198,7 +198,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Listagem de Usuario"/>
+            <Property name="text" type="java.lang.String" value="Listagem de Cliente"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnBackMenu">

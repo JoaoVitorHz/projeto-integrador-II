@@ -28,25 +28,25 @@ public class ViewDeleteUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtIdUser = new javax.swing.JTextField();
+        txtIdClient = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        btnDeletarUser = new javax.swing.JButton();
+        btnDeletarClient = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        btnBackListUser = new javax.swing.JButton();
+        btnBackListClient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel6.setText("ID Usuario:");
 
-        btnDeletarUser.setBackground(new java.awt.Color(71, 71, 135));
-        btnDeletarUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnDeletarUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeletarUser.setText("Deletar Usuario");
-        btnDeletarUser.setToolTipText("");
-        btnDeletarUser.addActionListener(new java.awt.event.ActionListener() {
+        btnDeletarClient.setBackground(new java.awt.Color(71, 71, 135));
+        btnDeletarClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDeletarClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeletarClient.setText("Deletar Usuario");
+        btnDeletarClient.setToolTipText("");
+        btnDeletarClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeletarUserActionPerformed(evt);
+                btnDeletarClientActionPerformed(evt);
             }
         });
 
@@ -54,15 +54,15 @@ public class ViewDeleteUser extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Deletar Usuario");
+        jLabel7.setText("Deletar Cliente");
 
-        btnBackListUser.setBackground(new java.awt.Color(71, 71, 135));
-        btnBackListUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBackListUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnBackListUser.setText("Voltar");
-        btnBackListUser.addActionListener(new java.awt.event.ActionListener() {
+        btnBackListClient.setBackground(new java.awt.Color(71, 71, 135));
+        btnBackListClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBackListClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackListClient.setText("Voltar");
+        btnBackListClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackListUserActionPerformed(evt);
+                btnBackListClientActionPerformed(evt);
             }
         });
 
@@ -73,8 +73,8 @@ public class ViewDeleteUser extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
-                .addComponent(btnBackListUser)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+                .addComponent(btnBackListClient)
                 .addGap(23, 23, 23))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,7 +83,7 @@ public class ViewDeleteUser extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(btnBackListUser))
+                    .addComponent(btnBackListClient))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -98,10 +98,10 @@ public class ViewDeleteUser extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtIdClient, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(194, 194, 194)
-                        .addComponent(btnDeletarUser)))
+                        .addComponent(btnDeletarClient)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -110,36 +110,36 @@ public class ViewDeleteUser extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(btnDeletarUser)
+                .addComponent(btnDeletarClient)
                 .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDeletarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarUserActionPerformed
+    private void btnDeletarClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarClientActionPerformed
         // TODO add your handling code here:
-        if(txtIdUser.getText().isEmpty()){
+        if(txtIdClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "O ID do produto não pode ser vazio.");
         }
         else {
             try {
-                int retorno = Integer.parseInt(txtIdUser.getText());
+                int retorno = Integer.parseInt(txtIdClient.getText());
             } catch (Exception e) {
                 //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
                 JOptionPane.showMessageDialog(this, "Por favor insira apenas números no ID do produto");
             }
         }
-    }//GEN-LAST:event_btnDeletarUserActionPerformed
+    }//GEN-LAST:event_btnDeletarClientActionPerformed
 
-    private void btnBackListUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListUserActionPerformed
+    private void btnBackListClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListClientActionPerformed
         // TODO add your handling code here:
         new ViewListUser().setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnBackListUserActionPerformed
+    }//GEN-LAST:event_btnBackListClientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,11 +177,11 @@ public class ViewDeleteUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBackListUser;
-    private javax.swing.JButton btnDeletarUser;
+    private javax.swing.JButton btnBackListClient;
+    private javax.swing.JButton btnDeletarClient;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtIdUser;
+    private javax.swing.JTextField txtIdClient;
     // End of variables declaration//GEN-END:variables
 }

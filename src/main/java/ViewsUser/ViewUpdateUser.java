@@ -29,32 +29,32 @@ public class ViewUpdateUser extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel5 = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
-        btnUpdateUser = new javax.swing.JButton();
+        txtClientName = new javax.swing.JTextField();
+        btnUpdateClient = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtLastNameUser = new javax.swing.JTextField();
+        txtLastNameClient = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtEmailUser = new javax.swing.JTextField();
+        txtEmailClient = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtCpfUser = new javax.swing.JTextField();
-        txtIdUser = new javax.swing.JTextField();
+        txtCpfClient = new javax.swing.JTextField();
+        txtIdClient = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        btnBackListUser = new javax.swing.JButton();
+        btnBackListClient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("CPF");
 
-        btnUpdateUser.setBackground(new java.awt.Color(71, 71, 135));
-        btnUpdateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnUpdateUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdateUser.setText("Alterar Usuario");
-        btnUpdateUser.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateClient.setBackground(new java.awt.Color(71, 71, 135));
+        btnUpdateClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdateClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateClient.setText("Alterar Cliente");
+        btnUpdateClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateUserActionPerformed(evt);
+                btnUpdateClientActionPerformed(evt);
             }
         });
 
@@ -64,9 +64,9 @@ public class ViewUpdateUser extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Sobrenome");
 
-        txtEmailUser.addActionListener(new java.awt.event.ActionListener() {
+        txtEmailClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailUserActionPerformed(evt);
+                txtEmailClientActionPerformed(evt);
             }
         });
 
@@ -74,21 +74,21 @@ public class ViewUpdateUser extends javax.swing.JFrame {
         jLabel4.setText("E-Mail");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("ID Usuario");
+        jLabel6.setText("ID Cliente");
 
         jPanel1.setBackground(new java.awt.Color(71, 71, 135));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Alterar Usuario");
+        jLabel7.setText("Alterar Cliente");
 
-        btnBackListUser.setBackground(new java.awt.Color(71, 71, 135));
-        btnBackListUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBackListUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnBackListUser.setText("Voltar");
-        btnBackListUser.addActionListener(new java.awt.event.ActionListener() {
+        btnBackListClient.setBackground(new java.awt.Color(71, 71, 135));
+        btnBackListClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBackListClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackListClient.setText("Voltar");
+        btnBackListClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackListUserActionPerformed(evt);
+                btnBackListClientActionPerformed(evt);
             }
         });
 
@@ -99,8 +99,8 @@ public class ViewUpdateUser extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 306, Short.MAX_VALUE)
-                .addComponent(btnBackListUser)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
+                .addComponent(btnBackListClient)
                 .addGap(23, 23, 23))
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,7 +109,7 @@ public class ViewUpdateUser extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(btnBackListUser))
+                    .addComponent(btnBackListClient))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -130,15 +130,15 @@ public class ViewUpdateUser extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmailUser, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLastNameUser, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCpfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmailClient, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLastNameClient, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCpfClient, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdClient, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnUpdateUser)
+                .addComponent(btnUpdateClient)
                 .addGap(201, 201, 201))
         );
         layout.setVerticalGroup(
@@ -158,66 +158,66 @@ public class ViewUpdateUser extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(jLabel5))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIdClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(txtLastNameUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtLastNameClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(txtEmailUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEmailClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(txtCpfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCpfClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(btnUpdateUser)
+                .addComponent(btnUpdateClient)
                 .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackListUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListUserActionPerformed
+    private void btnBackListClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListClientActionPerformed
         // TODO add your handling code here:
         new ViewListUser().setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnBackListUserActionPerformed
+    }//GEN-LAST:event_btnBackListClientActionPerformed
 
-    private void txtEmailUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailUserActionPerformed
+    private void txtEmailClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailClientActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailUserActionPerformed
+    }//GEN-LAST:event_txtEmailClientActionPerformed
 
-    private void btnUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUserActionPerformed
+    private void btnUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateClientActionPerformed
         // TODO add your handling code here:
-        if(txtIdUser.getText().isEmpty()){
+        if(txtIdClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "O Id do produto não pode estar vazio!");
         }
-        else if(txtIdUser.getText().matches("[^0-9.]+")){
+        else if(txtIdClient.getText().matches("[^0-9.]+")){
             JOptionPane.showMessageDialog(this, "Por favor insira apenas números no ID do produto!");
         }
-        else if(txtUserName.getText().isEmpty()){
+        else if(txtClientName.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o nome do usuario");
         } 
-        else if(!txtUserName.getText().matches("[^0-9.]+")){
+        else if(!txtClientName.getText().matches("[^0-9.]+")){
             JOptionPane.showMessageDialog(this, "Nome do usuario deve conter apenas numeros");
         }
-        else if(txtLastNameUser.getText().isEmpty()){
+        else if(txtLastNameClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o sobrenome do usuario");
         } 
-        else if(!txtLastNameUser.getText().matches("[^0-9.]+")){
+        else if(!txtLastNameClient.getText().matches("[^0-9.]+")){
             JOptionPane.showMessageDialog(this, "Sobrenome do usuario deve conter apenas numeros");
         }
-        else if(txtEmailUser.getText().isEmpty()){
+        else if(txtEmailClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o E-mail do usuario");
         }
-        else if(txtCpfUser.getText().isEmpty()){
+        else if(txtCpfClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o cpf do usuario");
         }
         try {
-            int retorno = Integer.parseInt(txtCpfUser.getText());
+            int retorno = Integer.parseInt(txtCpfClient.getText());
         } catch (Exception e) {
             //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
             JOptionPane.showMessageDialog(this, "Por favor insira apenas números no CPF");
         }
-    }//GEN-LAST:event_btnUpdateUserActionPerformed
+    }//GEN-LAST:event_btnUpdateClientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,8 +255,8 @@ public class ViewUpdateUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBackListUser;
-    private javax.swing.JButton btnUpdateUser;
+    private javax.swing.JButton btnBackListClient;
+    private javax.swing.JButton btnUpdateClient;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -264,10 +264,10 @@ public class ViewUpdateUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtCpfUser;
-    private javax.swing.JTextField txtEmailUser;
-    private javax.swing.JTextField txtIdUser;
-    private javax.swing.JTextField txtLastNameUser;
-    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtClientName;
+    private javax.swing.JTextField txtCpfClient;
+    private javax.swing.JTextField txtEmailClient;
+    private javax.swing.JTextField txtIdClient;
+    private javax.swing.JTextField txtLastNameClient;
     // End of variables declaration//GEN-END:variables
 }

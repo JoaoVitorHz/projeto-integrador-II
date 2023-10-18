@@ -36,15 +36,15 @@
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtEmailUser" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
-                          <Component id="txtLastNameUser" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
-                          <Component id="txtCpfUser" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
-                          <Component id="txtUserName" min="-2" pref="315" max="-2" attributes="0"/>
+                          <Component id="txtEmailClient" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
+                          <Component id="txtLastNameClient" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
+                          <Component id="txtCpfClient" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
+                          <Component id="txtClientName" min="-2" pref="315" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
-                      <Component id="btnAddUser" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAddClient" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -57,35 +57,35 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtUserName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="txtClientName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtLastNameUser" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="txtLastNameClient" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtEmailUser" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="txtEmailClient" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtCpfUser" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="txtCpfClient" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="btnAddUser" min="-2" max="-2" attributes="0"/>
+              <Component id="btnAddClient" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtUserName">
+    <Component class="javax.swing.JTextField" name="txtClientName">
     </Component>
-    <Component class="javax.swing.JButton" name="btnAddUser">
+    <Component class="javax.swing.JButton" name="btnAddClient">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="87" green="47" red="47" type="rgb"/>
@@ -99,7 +99,7 @@
         <Property name="text" type="java.lang.String" value="Adicionar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddUserActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddClientActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -107,21 +107,21 @@
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtLastNameUser">
+    <Component class="javax.swing.JTextField" name="txtLastNameClient">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sobrenome"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtEmailUser">
+    <Component class="javax.swing.JTextField" name="txtEmailClient">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="E-Mail"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCpfUser">
+    <Component class="javax.swing.JTextField" name="txtCpfClient">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -141,8 +141,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="238" max="32767" attributes="0"/>
-                  <Component id="btnBackListUser" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="244" max="32767" attributes="0"/>
+                  <Component id="btnBackListClient" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -153,7 +153,7 @@
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnBackListUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBackListClient" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
@@ -169,10 +169,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cadastrar Usuario"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar Cliente"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnBackListUser">
+        <Component class="javax.swing.JButton" name="btnBackListClient">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="87" green="47" red="47" type="rgb"/>
@@ -186,7 +186,7 @@
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackListUserActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackListClientActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
