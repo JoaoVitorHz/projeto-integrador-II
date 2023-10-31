@@ -181,18 +181,20 @@ public class ViewAddUser extends javax.swing.JFrame {
         }
         try {
             int retorno = Integer.parseInt(cpf.trim());
+            
+            ClientDTO objClientdto = new ClientDTO();
+            objClientdto.setFirst_name(first_name);
+            objClientdto.setLast_name(last_name);
+            objClientdto.setEmail(email);
+            objClientdto.setCpf(retorno);
+
+            ClientDAO objClientDAO = new ClientDAO();
+            objClientDAO.createClient(objClientdto);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Por favor insira apenas números no CPF");
         }
         
-        ClientDTO objClientdto = new ClientDTO();
-        objClientdto.setFirst_name(first_name);
-        objClientdto.setLast_name(last_name);
-        objClientdto.setEmail(email);
-        objClientdto.setCpf(WIDTH);
         
-        ClientDAO objClientDAO = new ClientDAO();
-        objClientDAO.createClient(objClientdto);
     }//GEN-LAST:event_btnAddClientActionPerformed
 
     private void btnBackListClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListClientActionPerformed

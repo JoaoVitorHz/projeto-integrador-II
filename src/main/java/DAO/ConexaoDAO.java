@@ -20,8 +20,9 @@ public class ConexaoDAO {
     public Connection conectarDB(){
         Connection conn = null; 
         
+
         try {
-            String url = "jdbc:mysql://localhost:3306/bancoteste?user=root&password=";
+            String url = "jdbc:mysql://localhost:3307/toy_shop?user=root&password=P@$$w0rd";
             conn = DriverManager.getConnection(url);
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "ConexaoDAO" + erro.getMessage());

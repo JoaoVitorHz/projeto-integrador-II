@@ -23,7 +23,7 @@ public class ClientDAO {
     ArrayList<ClientDTO> array = new ArrayList<>();
     
     public void createClient(ClientDTO objClientedto){
-        String sql = "INSERT INTO client (first_name, last_name, cpf, email) values(?,?,?,?)";
+        String sql = "INSERT INTO clients (first_name, last_name, email, cpf) values(?,?,?,?)";
         
         conn = new ConexaoDAO().conectarDB();
         
@@ -43,7 +43,7 @@ public class ClientDAO {
     }
     
     public ArrayList<ClientDTO> readClient(){
-        String sql = "SELECT * FROM client";
+        String sql = "SELECT * FROM clients";
         
         conn = new ConexaoDAO().conectarDB();
         
