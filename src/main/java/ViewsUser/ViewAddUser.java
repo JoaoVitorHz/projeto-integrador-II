@@ -4,6 +4,8 @@
  */
 package ViewsUser;
 
+import DAO.ClientDAO;
+import DTO.ClientDTO;
 import javax.swing.JOptionPane;
 
 /**
@@ -153,30 +155,44 @@ public class ViewAddUser extends javax.swing.JFrame {
 
     private void btnAddClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClientActionPerformed
         // TODO add your handling code here:
-        if(txtClientName.getText().isEmpty()){
+        
+        String first_name = txtClientName.getText();
+        String last_name = txtLastNameClient.getText();
+        String email = txtEmailClient.getText();
+        String cpf = txtCpfClient.getText();
+        
+        if(first_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o nome do usuario");
         } 
-        else if(!txtClientName.getText().matches("[^0-9.]+")){
+        else if(!first_name.matches("[^0-9.]+")){
             JOptionPane.showMessageDialog(this, "Nome do usuario deve conter apenas numeros");
         }
-        else if(txtLastNameClient.getText().isEmpty()){
+        else if(last_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o sobrenome do usuario");
         } 
-        else if(!txtLastNameClient.getText().matches("[^0-9.]+")){
+        else if(!last_name.matches("[^0-9.]+")){
             JOptionPane.showMessageDialog(this, "Sobrenome do usuario deve conter apenas numeros");
         }
-        else if(txtEmailClient.getText().isEmpty()){
+        else if(email.isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o E-mail do usuario");
         }
-        else if(txtCpfClient.getText().isEmpty()){
+        else if(cpf.isEmpty()){
             JOptionPane.showMessageDialog(this, "Por favor insira o cpf do usuario");
         }
         try {
-            int retorno = Integer.parseInt(txtCpfClient.getText().trim());
+            int retorno = Integer.parseInt(cpf.trim());
         } catch (Exception e) {
-            //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
             JOptionPane.showMessageDialog(this, "Por favor insira apenas números no CPF");
         }
+        
+        ClientDTO objClientdto = new ClientDTO();
+        objClientdto.setFirst_name(first_name);
+        objClientdto.setLast_name(last_name);
+        objClientdto.setEmail(email);
+        objClientdto.setCpf(WIDTH);
+        
+        ClientDAO objClientDAO = new ClientDAO();
+        objClientDAO.createClient(objClientdto);
     }//GEN-LAST:event_btnAddClientActionPerformed
 
     private void btnBackListClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListClientActionPerformed
