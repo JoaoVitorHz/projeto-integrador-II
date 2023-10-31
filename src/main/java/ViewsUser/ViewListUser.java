@@ -4,6 +4,12 @@
  */
 package ViewsUser;
 
+import DAO.ClientDAO;
+import DTO.ClientDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author vitor
@@ -15,6 +21,7 @@ public class ViewListUser extends javax.swing.JFrame {
      */
     public ViewListUser() {
         initComponents();
+        listClient();
     }
 
     /**
@@ -27,7 +34,7 @@ public class ViewListUser extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        clientTable = new javax.swing.JTable();
         btnInsertClient = new javax.swing.JButton();
         btnUpdateClient = new javax.swing.JButton();
         btnDeleteClient = new javax.swing.JButton();
@@ -37,7 +44,7 @@ public class ViewListUser extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        clientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "João", "Araujo", "joao@gmail.com", "3232"},
                 {null, null, null, null, null},
@@ -48,7 +55,7 @@ public class ViewListUser extends javax.swing.JFrame {
                 "ID", "Nome", "Sobrenome", "E-mail", "CPF"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(clientTable);
 
         btnInsertClient.setBackground(new java.awt.Color(71, 71, 135));
         btnInsertClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -177,6 +184,7 @@ public class ViewListUser extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackMenuActionPerformed
 
     /**
+     * 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -216,9 +224,38 @@ public class ViewListUser extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteClient;
     private javax.swing.JButton btnInsertClient;
     private javax.swing.JButton btnUpdateClient;
+    private javax.swing.JTable clientTable;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+    
+    private void listClient(){
+        
+        try {
+            
+            ClientDAO objClientDAO = new ClientDAO();
+            DefaultTableModel model = (DefaultTableModel) clientTable.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<ClientDTO> array = objClientDAO.readClient();
+            
+            for(int num = 0; num < array.size(); num ++){
+                model.addRow(new Object[]{
+                    array.get(num).getId(),
+                    array.get(num).getFirst_name(),
+                    array.get(num).getLast_name(),
+                    array.get(num).getEmail(),
+                    array.get(num).getCpf(),
+                });
+            }
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
+
 }
+
