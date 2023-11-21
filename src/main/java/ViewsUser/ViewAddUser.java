@@ -180,13 +180,12 @@ public class ViewAddUser extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor insira o cpf do usuario");
         }
         try {
-            int retorno = Integer.parseInt(cpf.trim());
             
             ClientDTO objClientdto = new ClientDTO();
             objClientdto.setFirst_name(first_name);
             objClientdto.setLast_name(last_name);
             objClientdto.setEmail(email);
-            objClientdto.setCpf(retorno);
+            objClientdto.setCpf(cpf);
 
             ClientDAO objClientDAO = new ClientDAO();
             objClientDAO.createClient(objClientdto);

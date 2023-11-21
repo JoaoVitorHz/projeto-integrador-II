@@ -19,7 +19,6 @@ public class ConexaoDAO {
     
     public Connection conectarDB(){
         Connection conn = null; 
-        
 
         try {
             String url = "jdbc:mysql://localhost:3307/toy_shop?user=root&password=P@$$w0rd";

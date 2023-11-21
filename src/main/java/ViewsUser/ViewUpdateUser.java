@@ -4,6 +4,8 @@
  */
 package ViewsUser;
 
+import DAO.ClientDAO;
+import DTO.ClientDTO;
 import javax.swing.JOptionPane;
 
 /**
@@ -187,6 +189,8 @@ public class ViewUpdateUser extends javax.swing.JFrame {
 
     private void btnUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateClientActionPerformed
         // TODO add your handling code here:
+        
+        
         if(txtIdClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "O Id do produto não pode estar vazio!");
         }
@@ -212,7 +216,26 @@ public class ViewUpdateUser extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor insira o cpf do usuario");
         }
         try {
-            int retorno = Integer.parseInt(txtCpfClient.getText());
+            
+            int id = Integer.parseInt(txtCpfClient.getText());
+            String firstName = txtClientName.getText();
+            String lastName = txtLastNameClient.getText();
+            String email = txtEmailClient.getText();
+            String cpf = txtCpfClient.getText();
+            
+            ClientDTO objClientDto = new ClientDTO();
+            objClientDto.setId(id);
+            objClientDto.setFirst_name(firstName);
+            objClientDto.setLast_name(lastName);
+            objClientDto.setEmail(email);
+            objClientDto.setCpf(cpf);
+            
+            ClientDAO objClientDAO = new ClientDAO();
+            objClientDAO.UpdateClient(objClientDto);
+            
+            new ViewListUser().setVisible(true);
+            dispose();
+            
         } catch (Exception e) {
             //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
             JOptionPane.showMessageDialog(this, "Por favor insira apenas números no CPF");

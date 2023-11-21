@@ -4,6 +4,8 @@
  */
 package ViewsUser;
 
+import DAO.ClientDAO;
+import DTO.ClientDTO;
 import javax.swing.JOptionPane;
 
 /**
@@ -123,11 +125,20 @@ public class ViewDeleteUser extends javax.swing.JFrame {
     private void btnDeletarClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarClientActionPerformed
         // TODO add your handling code here:
         if(txtIdClient.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "O ID do produto não pode ser vazio.");
+            JOptionPane.showMessageDialog(this, "O ID do Cliente não pode ser vazio.");
         }
         else {
             try {
-                int retorno = Integer.parseInt(txtIdClient.getText());
+                int id = Integer.parseInt(txtIdClient.getText());
+                ClientDTO objClientDTO = new ClientDTO();
+                objClientDTO.setId(id);
+                
+                ClientDAO objClientDAO = new ClientDAO();
+                objClientDAO.DeleteClient(objClientDTO);
+                
+                new ViewListUser().setVisible(true);
+                dispose();
+                
             } catch (Exception e) {
                 //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
                 JOptionPane.showMessageDialog(this, "Por favor insira apenas números no ID do produto");

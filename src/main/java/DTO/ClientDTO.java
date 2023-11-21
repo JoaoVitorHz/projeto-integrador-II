@@ -4,7 +4,7 @@ public class ClientDTO {
     private String first_name;
     private String last_name;
     private String email;
-    private int cpf;
+    private String cpf;
     private int id;
 
     public String getFirst_name() {
@@ -31,11 +31,11 @@ public class ClientDTO {
         this.email = email;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
