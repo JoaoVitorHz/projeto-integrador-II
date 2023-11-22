@@ -4,6 +4,7 @@
  */
 package ViewsProduct;
 
+import DTO.ProdutosModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -243,6 +244,12 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
         else {
             try {
                 int retorno = Integer.parseInt(txtProductQtd.getText());
+                
+                ProdutosModel objProdutos = new ProdutosModel();
+                
+                
+                
+                
                 if(retorno < 0){
                  JOptionPane.showMessageDialog(this, "Por favor insira numeros positivos na quantidade");
                 }
