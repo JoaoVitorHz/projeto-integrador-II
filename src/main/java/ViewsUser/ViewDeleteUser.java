@@ -4,8 +4,8 @@
  */
 package ViewsUser;
 
-import DAO.ClientDAO;
-import DTO.ClientDTO;
+import DAO.UserDAO;
+import Model.UserModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -130,11 +130,11 @@ public class ViewDeleteUser extends javax.swing.JFrame {
         else {
             try {
                 int id = Integer.parseInt(txtIdClient.getText());
-                ClientDTO objClientDTO = new ClientDTO();
+                UserModel objClientDTO = new UserModel();
                 objClientDTO.setId(id);
                 
-                ClientDAO objClientDAO = new ClientDAO();
-                objClientDAO.DeleteClient(objClientDTO);
+                UserDAO objClientDAO = new UserDAO();
+                objClientDAO.DeleteUser(objClientDTO);
                 
                 new ViewListUser().setVisible(true);
                 dispose();

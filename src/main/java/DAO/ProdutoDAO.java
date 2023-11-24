@@ -4,7 +4,7 @@
  */
 package DAO;
 
-import DTO.ProdutosModel;
+import Model.ProdutosModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

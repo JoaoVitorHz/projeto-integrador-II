@@ -4,8 +4,8 @@
  */
 package ViewsUser;
 
-import DAO.ClientDAO;
-import DTO.ClientDTO;
+import DAO.UserDAO;
+import Model.UserModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -223,15 +223,15 @@ public class ViewUpdateUser extends javax.swing.JFrame {
             String email = txtEmailClient.getText();
             String cpf = txtCpfClient.getText();
             
-            ClientDTO objClientDto = new ClientDTO();
+            UserModel objClientDto = new UserModel();
             objClientDto.setId(id);
             objClientDto.setFirst_name(firstName);
             objClientDto.setLast_name(lastName);
             objClientDto.setEmail(email);
             objClientDto.setCpf(cpf);
             
-            ClientDAO objClientDAO = new ClientDAO();
-            objClientDAO.UpdateClient(objClientDto);
+            UserDAO objClientDAO = new UserDAO();
+            objClientDAO.UpdateUser(objClientDto);
             
             new ViewListUser().setVisible(true);
             dispose();

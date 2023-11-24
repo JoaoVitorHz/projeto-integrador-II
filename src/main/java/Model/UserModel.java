@@ -1,6 +1,6 @@
-package DTO;
+package Model;
 
-public class ClientDTO {
+public class UserModel {
     private String first_name;
     private String last_name;
     private String email;

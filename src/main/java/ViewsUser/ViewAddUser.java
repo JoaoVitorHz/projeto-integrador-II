@@ -4,8 +4,9 @@
  */
 package ViewsUser;
 
-import DAO.ClientDAO;
-import DTO.ClientDTO;
+import DAO.UserDAO;
+import Model.UserModel;
+import Validation.UserValidation;
 import javax.swing.JOptionPane;
 
 /**
@@ -155,45 +156,30 @@ public class ViewAddUser extends javax.swing.JFrame {
 
     private void btnAddClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClientActionPerformed
         // TODO add your handling code here:
-        
-        String first_name = txtClientName.getText();
-        String last_name = txtLastNameClient.getText();
-        String email = txtEmailClient.getText();
-        String cpf = txtCpfClient.getText();
-        
-        if(first_name.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insira o nome do usuario");
-        } 
-        else if(!first_name.matches("[^0-9.]+")){
-            JOptionPane.showMessageDialog(this, "Nome do usuario deve conter apenas numeros");
-        }
-        else if(last_name.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insira o sobrenome do usuario");
-        } 
-        else if(!last_name.matches("[^0-9.]+")){
-            JOptionPane.showMessageDialog(this, "Sobrenome do usuario deve conter apenas numeros");
-        }
-        else if(email.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insira o E-mail do usuario");
-        }
-        else if(cpf.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insira o cpf do usuario");
-        }
         try {
-            
-            ClientDTO objClientdto = new ClientDTO();
-            objClientdto.setFirst_name(first_name);
-            objClientdto.setLast_name(last_name);
-            objClientdto.setEmail(email);
-            objClientdto.setCpf(cpf);
+            //Insere os dados na model 
+            UserModel userModel = new UserModel();
+            userModel.setFirst_name( txtClientName.getText());
+            userModel.setLast_name(txtLastNameClient.getText());
+            userModel.setEmail(txtEmailClient.getText());
+            userModel.setCpf(txtCpfClient.getText());
 
-            ClientDAO objClientDAO = new ClientDAO();
-            objClientDAO.createClient(objClientdto);
+            //Valida os valores
+            UserValidation userValidation = new UserValidation();
+            boolean hasError = userValidation.ValidateUserData(userModel);
+            
+            //Chama o metodo para inserir no banco 
+            if(hasError){
+                UserDAO objClientDAO = new UserDAO();
+                objClientDAO.CreateUser(userModel);
+                
+                JOptionPane.showMessageDialog(this, "Usuario inserido com sucesso!");
+                new ViewListUser().setVisible(true);
+                dispose();
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Por favor insira apenas números no CPF");
         }
-        
-        
     }//GEN-LAST:event_btnAddClientActionPerformed
 
     private void btnBackListClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListClientActionPerformed

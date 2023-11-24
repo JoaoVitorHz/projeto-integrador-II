@@ -4,8 +4,8 @@
  */
 package ViewsUser;
 
-import DAO.ClientDAO;
-import DTO.ClientDTO;
+import DAO.UserDAO;
+import Model.UserModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -234,11 +234,11 @@ public class ViewListUser extends javax.swing.JFrame {
         
         try {
             
-            ClientDAO objClientDAO = new ClientDAO();
+            UserDAO objClientDAO = new UserDAO();
             DefaultTableModel model = (DefaultTableModel) clientTable.getModel();
             model.setNumRows(0);
             
-            ArrayList<ClientDTO> array = objClientDAO.readClient();
+            ArrayList<UserModel> array = objClientDAO.ReadUser();
             
             for(int num = 0; num < array.size(); num ++){
                 model.addRow(new Object[]{

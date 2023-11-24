@@ -4,7 +4,7 @@
  */
 package ViewsProduct;
 
-import DTO.ProdutosModel;
+import Model.ProdutosModel;
 import javax.swing.JOptionPane;
 
 /**
