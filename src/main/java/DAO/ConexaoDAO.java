@@ -21,7 +21,7 @@ public class ConexaoDAO {
         Connection conn = null; 
 
         try {
-            String url = "jdbc:mysql://localhost:3307/toy_shop?user=root&password=P@$$w0rd";
+            String url = "jdbc:mysql://localhost:3306/toy_shop?user=root&password=";
             conn = DriverManager.getConnection(url);
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "ConexaoDAO" + erro.getMessage());

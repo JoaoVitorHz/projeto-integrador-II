@@ -14,47 +14,62 @@ import java.util.regex.Pattern;
  * @author vitor
  */
 public class UserValidation {
+        
+    public boolean ValidateFirstName(UserModel userData){
+        
+        if(userData.getFirst_name().isEmpty()){
+            JOptionPane.showMessageDialog(null, "O nome do usuario não pode estar vazio!");
+            return true;
+        } 
+        else if(!userData.getFirst_name().matches("[^0-9.]+")){
+            JOptionPane.showMessageDialog(null, "O nome do usuario não pode ter números!");
+            return true;
+        }
+        
+        return false;
+    }
     
-    public boolean ValidateUserData(UserModel userData){
-          
+    public boolean ValidateLastName(UserModel userData){
+        if(userData.getLast_name().isEmpty()){
+            JOptionPane.showMessageDialog(null, "O sobrenome do usuario não pode estar vazio!");
+            return true;
+        }
+        else if(!userData.getLast_name().matches("[^0-9.]+")){
+            JOptionPane.showMessageDialog(null, "O sobrenome do usuario não pode ter números!");
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public boolean ValidateEmail(UserModel userData){
         String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(userData.getEmail());
         
-        if(userData.getFirst_name().isEmpty()){
-            JOptionPane.showMessageDialog(null, "O nome do usuario não pode estar vazio!");
-            return false; 
-        } 
-        else if(userData.getFirst_name().matches("[^0-9.]+")){
-            JOptionPane.showMessageDialog(null, "O nome do usuario não pode ter números!");
-            return false;
-        }
-        else if(userData.getLast_name().isEmpty()){
-            JOptionPane.showMessageDialog(null, "O sobrenome do usuario não pode estar vazio!");
-            return false; 
-        }
-        else if(userData.getLast_name().matches("[^0-9.]+")){
-            JOptionPane.showMessageDialog(null, "O sobrenome do usuario não pode ter números!");
-            return false;
-        }
-        else if(userData.getEmail().isEmpty()){
+        if(userData.getEmail().isEmpty()){
             JOptionPane.showMessageDialog(null, "O Email do usuario não pode estar vazio!");
-            return false; 
+            return true;
         }
         else if(!matcher.matches()){
             JOptionPane.showMessageDialog(null, "O Email do usuario esta invalido!");
-            return false; 
+            return true;
         }
-        else if(!userData.getCpf().matches("[0-9]+")){
+        
+        return false;
+    }
+    
+    public boolean ValidateCPF(UserModel userData){
+        if(!userData.getCpf().matches("[0-9]+")){
             JOptionPane.showMessageDialog(null, "Insira apenas os numeros no CPF do usuario!");
-            return false; 
+            return true;
         }
         else if(!isValidCPF(userData.getCpf())){
             JOptionPane.showMessageDialog(null, "O CPF do usuario esta invalido!");
-            return false; 
+            return true;
         }
-      
-        return true; 
+        
+        return false;
     }
     
     private static int calcularDigito(String str) {

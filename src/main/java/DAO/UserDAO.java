@@ -53,7 +53,7 @@ public class UserDAO {
             
             while(rs.next()){
                 UserModel userModel = new UserModel();
-                userModel.setId(rs.getInt("id_user"));
+                userModel.setId(rs.getInt("id"));
                 userModel.setFirst_name(rs.getString("first_name"));
                 userModel.setLast_name(rs.getString("last_name"));
                 userModel.setEmail(rs.getString("email"));
@@ -68,7 +68,7 @@ public class UserDAO {
     }
     
     public void UpdateUser(UserModel userModel){
-        String sql = "UPDATE user set first_name = ?, last_name = ?, email = ?, cpf = ? WHERE id_user = ?";
+        String sql = "UPDATE user set first_name = ?, last_name = ?, email = ?, cpf = ? WHERE id = ?";
         
         conn = new ConexaoDAO().conectarDB();
         
@@ -89,7 +89,7 @@ public class UserDAO {
     }
     
     public void DeleteUser(UserModel userModel){
-        String sql = "DELETE FROM user WHERE id_user = ?";
+        String sql = "DELETE FROM user WHERE id= ?";
          
         conn = new ConexaoDAO().conectarDB();
            

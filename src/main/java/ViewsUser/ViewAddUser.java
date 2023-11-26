@@ -166,10 +166,14 @@ public class ViewAddUser extends javax.swing.JFrame {
 
             //Valida os valores
             UserValidation userValidation = new UserValidation();
-            boolean hasError = userValidation.ValidateUserData(userModel);
+            boolean firstNameIsValid = userValidation.ValidateFirstName(userModel);
+            boolean lastNameIsValid = userValidation.ValidateLastName(userModel);
+            boolean emailIsValid = userValidation.ValidateEmail(userModel);
+            boolean cpfIsValid = userValidation.ValidateCPF(userModel);
             
-            //Chama o metodo para inserir no banco 
-            if(hasError){
+            
+            if(!firstNameIsValid && !lastNameIsValid && !emailIsValid && !cpfIsValid){
+                //Chama o metodo para inserir no banco 
                 UserDAO objClientDAO = new UserDAO();
                 objClientDAO.CreateUser(userModel);
                 

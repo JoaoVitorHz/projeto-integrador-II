@@ -6,6 +6,7 @@ package ViewsUser;
 
 import DAO.UserDAO;
 import Model.UserModel;
+import Validation.UserValidation;
 import javax.swing.JOptionPane;
 
 /**
@@ -194,51 +195,36 @@ public class ViewUpdateUser extends javax.swing.JFrame {
         if(txtIdClient.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "O Id do produto não pode estar vazio!");
         }
-        else if(txtIdClient.getText().matches("[^0-9.]+")){
-            JOptionPane.showMessageDialog(this, "Por favor insira apenas números no ID do produto!");
-        }
-        else if(txtClientName.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insira o nome do usuario");
-        } 
-        else if(!txtClientName.getText().matches("[^0-9.]+")){
-            JOptionPane.showMessageDialog(this, "Nome do usuario deve conter apenas numeros");
-        }
-        else if(txtLastNameClient.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insira o sobrenome do usuario");
-        } 
-        else if(!txtLastNameClient.getText().matches("[^0-9.]+")){
-            JOptionPane.showMessageDialog(this, "Sobrenome do usuario deve conter apenas numeros");
-        }
-        else if(txtEmailClient.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insira o E-mail do usuario");
-        }
-        else if(txtCpfClient.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Por favor insira o cpf do usuario");
-        }
         try {
-            
             int id = Integer.parseInt(txtCpfClient.getText());
-            String firstName = txtClientName.getText();
-            String lastName = txtLastNameClient.getText();
-            String email = txtEmailClient.getText();
-            String cpf = txtCpfClient.getText();
             
-            UserModel objClientDto = new UserModel();
-            objClientDto.setId(id);
-            objClientDto.setFirst_name(firstName);
-            objClientDto.setLast_name(lastName);
-            objClientDto.setEmail(email);
-            objClientDto.setCpf(cpf);
+            UserModel userModel = new UserModel();
+            userModel.setId(id);
+            userModel.setFirst_name(txtClientName.getText());
+            userModel.setLast_name( txtLastNameClient.getText());
+            userModel.setEmail(txtEmailClient.getText());
+            userModel.setCpf(txtCpfClient.getText());
             
-            UserDAO objClientDAO = new UserDAO();
-            objClientDAO.UpdateUser(objClientDto);
+            //Valida os valores
+            UserValidation userValidation = new UserValidation();
+            boolean firstNameIsValid = userValidation.ValidateFirstName(userModel);
+            boolean lastNameIsValid = userValidation.ValidateLastName(userModel);
+            boolean emailIsValid = userValidation.ValidateEmail(userModel);
+            boolean cpfIsValid = userValidation.ValidateCPF(userModel);
             
-            new ViewListUser().setVisible(true);
-            dispose();
+            if(!firstNameIsValid && !lastNameIsValid && !emailIsValid && !cpfIsValid){
+                //Chama o metodo para Alterar no banco 
+                UserDAO objClientDAO = new UserDAO();
+                objClientDAO.UpdateUser(userModel);
+                    
+                JOptionPane.showMessageDialog(this, "Usuario alterado com sucesso!");
+                new ViewListUser().setVisible(true);
+                dispose();
+            }
             
         } catch (Exception e) {
             //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
-            JOptionPane.showMessageDialog(this, "Por favor insira apenas números no CPF");
+            JOptionPane.showMessageDialog(this, "Por favor insira apenas números no ID");
         }
     }//GEN-LAST:event_btnUpdateClientActionPerformed
 
@@ -275,6 +261,15 @@ public class ViewUpdateUser extends javax.swing.JFrame {
                 new ViewUpdateUser().setVisible(true);
             }
         });
+    }
+    
+    public void CarregarDados(UserModel userModel){
+        txtIdClient.setText(Integer.toString(userModel.getId()));
+        txtClientName.setText(userModel.getFirst_name());
+        txtLastNameClient.setText(userModel.getLast_name());
+        txtEmailClient.setText(userModel.getEmail());
+        txtCpfClient.setText(userModel.getCpf());
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

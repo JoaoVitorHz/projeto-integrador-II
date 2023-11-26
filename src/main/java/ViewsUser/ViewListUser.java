@@ -34,7 +34,7 @@ public class ViewListUser extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        clientTable = new javax.swing.JTable();
+        userTable = new javax.swing.JTable();
         btnInsertClient = new javax.swing.JButton();
         btnUpdateClient = new javax.swing.JButton();
         btnDeleteClient = new javax.swing.JButton();
@@ -44,9 +44,8 @@ public class ViewListUser extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        clientTable.setModel(new javax.swing.table.DefaultTableModel(
+        userTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "João", "Araujo", "joao@gmail.com", "3232"},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null}
@@ -55,7 +54,7 @@ public class ViewListUser extends javax.swing.JFrame {
                 "ID", "Nome", "Sobrenome", "E-mail", "CPF"
             }
         ));
-        jScrollPane1.setViewportView(clientTable);
+        jScrollPane1.setViewportView(userTable);
 
         btnInsertClient.setBackground(new java.awt.Color(71, 71, 135));
         btnInsertClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -167,8 +166,7 @@ public class ViewListUser extends javax.swing.JFrame {
 
     private void btnUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateClientActionPerformed
         // TODO add your handling code here:
-        new ViewsUser.ViewUpdateUser().setVisible(true);
-        dispose();
+        CarregarCampos();
     }//GEN-LAST:event_btnUpdateClientActionPerformed
 
     private void btnDeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteClientActionPerformed
@@ -224,21 +222,21 @@ public class ViewListUser extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteClient;
     private javax.swing.JButton btnInsertClient;
     private javax.swing.JButton btnUpdateClient;
-    private javax.swing.JTable clientTable;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
     
     private void listClient(){
         
         try {
             
-            UserDAO objClientDAO = new UserDAO();
-            DefaultTableModel model = (DefaultTableModel) clientTable.getModel();
+            UserDAO userDAO = new UserDAO();
+            DefaultTableModel model = (DefaultTableModel) userTable.getModel();
             model.setNumRows(0);
             
-            ArrayList<UserModel> array = objClientDAO.ReadUser();
+            ArrayList<UserModel> array = userDAO.ReadUser();
             
             for(int num = 0; num < array.size(); num ++){
                 model.addRow(new Object[]{
@@ -255,6 +253,22 @@ public class ViewListUser extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         
+    }
+    
+    public void CarregarCampos(){
+        int setar = userTable.getSelectedRow();
+        
+        UserModel userModel = new UserModel();
+        userModel.setId(Integer.parseInt(userTable.getModel().getValueAt(setar, 0).toString()));
+        userModel.setFirst_name(userTable.getModel().getValueAt(setar, 1).toString());
+        userModel.setLast_name(userTable.getModel().getValueAt(setar, 2).toString());
+        userModel.setEmail(userTable.getModel().getValueAt(setar, 3).toString());
+        userModel.setCpf(userTable.getModel().getValueAt(setar, 4).toString());
+        
+        ViewUpdateUser viewsUpdateuser = new ViewUpdateUser();
+        viewsUpdateuser.CarregarDados(userModel);
+        viewsUpdateuser.setVisible(true);;
+        dispose();
     }
 
 }
