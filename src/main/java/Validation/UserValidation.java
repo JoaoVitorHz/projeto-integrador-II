@@ -55,13 +55,12 @@ public class UserValidation {
             JOptionPane.showMessageDialog(null, "O Email do usuario esta invalido!");
             return true;
         }
-        
         return false;
     }
     
     public boolean ValidateCPF(UserModel userData){
         if(!userData.getCpf().matches("[0-9]+")){
-            JOptionPane.showMessageDialog(null, "Insira apenas os numeros no CPF do usuario!");
+            JOptionPane.showMessageDialog(null, "Insira apenas numeros no CPF do usuario!");
             return true;
         }
         else if(!isValidCPF(userData.getCpf())){

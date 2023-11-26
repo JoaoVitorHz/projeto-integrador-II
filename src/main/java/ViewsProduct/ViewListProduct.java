@@ -4,9 +4,13 @@
  */
 package ViewsProduct;
 
-import ViewsProduct.ViewDeleteProduct;
+import DAO.ProductDAO;
+import Model.ProductModel;
 import ViewsProduct.ViewAddProduct;
 import com.mycompany.p.i.ViewMenu;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +23,7 @@ public class ViewListProduct extends javax.swing.JFrame {
      */
     public ViewListProduct() {
         initComponents();
+        ListarDados();
     }
 
     /**
@@ -34,7 +39,7 @@ public class ViewListProduct extends javax.swing.JFrame {
         btnUpdateProduct = new javax.swing.JButton();
         btnDeleteProduct = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        productTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         btnBackMenu = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -72,7 +77,7 @@ public class ViewListProduct extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        productTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "Boneco", "R$ 120,00", "10"},
                 {null, null, null, null},
@@ -83,7 +88,7 @@ public class ViewListProduct extends javax.swing.JFrame {
                 "ID", "Nome", "Preço", "Quantidade"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(productTable);
 
         jPanel1.setBackground(new java.awt.Color(71, 71, 135));
 
@@ -164,14 +169,21 @@ public class ViewListProduct extends javax.swing.JFrame {
 
     private void btnUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProductActionPerformed
         // TODO add your handling code here:
-        new ViewUpdateProduct().setVisible(true);
-        dispose();
+        CarregarCampos();
     }//GEN-LAST:event_btnUpdateProductActionPerformed
 
     private void btnDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProductActionPerformed
         // TODO add your handling code here:
-        new ViewDeleteProduct().setVisible(true);
-        dispose();
+        int setar = productTable.getSelectedRow();
+        
+        ProductModel productModel = new ProductModel();
+        productModel.setId(Integer.parseInt(productTable.getModel().getValueAt(setar, 0).toString()));
+        
+        ProductDAO productDAO = new ProductDAO();
+        productDAO.DeleteProduct(productModel);
+        
+        JOptionPane.showMessageDialog(null, "Produto Deletado com sucesso!");
+        ListarDados();
     }//GEN-LAST:event_btnDeleteProductActionPerformed
 
     private void btnBackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMenuActionPerformed
@@ -218,6 +230,43 @@ public class ViewListProduct extends javax.swing.JFrame {
         });
     }
 
+    
+    public void ListarDados(){
+         try {
+            ProductDAO productDAO = new ProductDAO();
+            DefaultTableModel model = (DefaultTableModel) productTable.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<ProductModel> array = productDAO.ReadProduct();
+            
+            for(int num = 0; num < array.size(); num ++){
+                model.addRow(new Object[]{
+                    array.get(num).getId(),
+                    array.get(num).getNome(),
+                    array.get(num).getPreco(),
+                    array.get(num).getQtd(),
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    public void CarregarCampos(){
+        int setar = productTable.getSelectedRow();
+        
+        ProductModel productModel = new ProductModel();
+        productModel.setId(Integer.parseInt(productTable.getModel().getValueAt(setar, 0).toString()));
+        productModel.setNome(productTable.getModel().getValueAt(setar, 1).toString());
+        productModel.setPreco(Float.parseFloat(productTable.getModel().getValueAt(setar, 2).toString()));
+        productModel.setQtd(Integer.parseInt(productTable.getModel().getValueAt(setar, 3).toString()));
+        
+        ViewUpdateProduct viewsUpdateProduct = new ViewUpdateProduct();
+        viewsUpdateProduct.CarregarDados(productModel);
+        viewsUpdateProduct.setVisible(true);;
+        dispose();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnBackMenu;
@@ -226,6 +275,6 @@ public class ViewListProduct extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable productTable;
     // End of variables declaration//GEN-END:variables
 }

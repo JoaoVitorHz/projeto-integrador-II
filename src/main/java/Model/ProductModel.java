@@ -8,10 +8,10 @@ package Model;
  *
  * @author luana
  */
-public class ProdutosModel {
+public class ProductModel {
     private int id;
     private String nome;
-    private double preco;
+    private float preco = 0;
     private int qtd;
 
     /**
@@ -45,14 +45,14 @@ public class ProdutosModel {
     /**
      * @return the preco
      */
-    public double getPreco() {
+    public float getPreco() {
         return preco;
     }
 
     /**
      * @param preco the preco to set
      */
-    public void setPreco(double preco) {
+    public void setPreco(float preco) {
         this.preco = preco;
     }
 

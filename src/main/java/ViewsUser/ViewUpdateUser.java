@@ -76,6 +76,9 @@ public class ViewUpdateUser extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("E-Mail");
 
+        txtIdClient.setEditable(false);
+        txtIdClient.setEnabled(false);
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("ID Cliente");
 
@@ -190,16 +193,9 @@ public class ViewUpdateUser extends javax.swing.JFrame {
 
     private void btnUpdateClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateClientActionPerformed
         // TODO add your handling code here:
-        
-        
-        if(txtIdClient.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "O Id do produto não pode estar vazio!");
-        }
         try {
-            int id = Integer.parseInt(txtCpfClient.getText());
-            
             UserModel userModel = new UserModel();
-            userModel.setId(id);
+            userModel.setId(Integer.parseInt(txtIdClient.getText()));
             userModel.setFirst_name(txtClientName.getText());
             userModel.setLast_name( txtLastNameClient.getText());
             userModel.setEmail(txtEmailClient.getText());
@@ -213,7 +209,6 @@ public class ViewUpdateUser extends javax.swing.JFrame {
             boolean cpfIsValid = userValidation.ValidateCPF(userModel);
             
             if(!firstNameIsValid && !lastNameIsValid && !emailIsValid && !cpfIsValid){
-                //Chama o metodo para Alterar no banco 
                 UserDAO objClientDAO = new UserDAO();
                 objClientDAO.UpdateUser(userModel);
                     
@@ -221,10 +216,8 @@ public class ViewUpdateUser extends javax.swing.JFrame {
                 new ViewListUser().setVisible(true);
                 dispose();
             }
-            
-        } catch (Exception e) {
-            //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
-            JOptionPane.showMessageDialog(this, "Por favor insira apenas números no ID");
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, error);
         }
     }//GEN-LAST:event_btnUpdateClientActionPerformed
 

@@ -129,25 +129,25 @@ public class ViewListUser extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnInsertClient)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnUpdateClient)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDeleteClient)
-                        .addGap(51, 51, 51)))
-                .addGap(34, 34, 34))
+                .addGap(73, 73, 73)
+                .addComponent(btnInsertClient)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnUpdateClient)
+                .addGap(45, 45, 45)
+                .addComponent(btnDeleteClient)
+                .addGap(85, 85, 85))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertClient)
                     .addComponent(btnUpdateClient)
@@ -170,9 +170,13 @@ public class ViewListUser extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateClientActionPerformed
 
     private void btnDeleteClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteClientActionPerformed
-        // TODO add your handling code here:
-        new ViewsUser.ViewDeleteUser().setVisible(true);
-        dispose();
+        int setar = userTable.getSelectedRow();
+        UserModel userModel = new UserModel();
+        userModel.setId(Integer.parseInt(userTable.getModel().getValueAt(setar, 0).toString()));
+        
+        UserDAO userDAO = new UserDAO();
+        userDAO.DeleteUser(userModel);
+        listClient();   
     }//GEN-LAST:event_btnDeleteClientActionPerformed
 
     private void btnBackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMenuActionPerformed
@@ -229,9 +233,7 @@ public class ViewListUser extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
     private void listClient(){
-        
         try {
-            
             UserDAO userDAO = new UserDAO();
             DefaultTableModel model = (DefaultTableModel) userTable.getModel();
             model.setNumRows(0);
@@ -247,12 +249,9 @@ public class ViewListUser extends javax.swing.JFrame {
                     array.get(num).getCpf(),
                 });
             }
-            
         } catch (Exception e) {
-            
             JOptionPane.showMessageDialog(null, e);
         }
-        
     }
     
     public void CarregarCampos(){

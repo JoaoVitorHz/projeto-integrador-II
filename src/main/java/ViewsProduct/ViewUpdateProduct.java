@@ -4,7 +4,9 @@
  */
 package ViewsProduct;
 
-import Model.ProdutosModel;
+import DAO.ProductDAO;
+import Model.ProductModel;
+import Validation.ProductValidation;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,8 +39,6 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
         txtProductPrice = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtProductQtd = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtProductDesc = new javax.swing.JTextField();
         btnUpdateProduct = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -48,6 +48,9 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("ID");
+
+        txtProductId.setEditable(false);
+        txtProductId.setEnabled(false);
 
         jLabel3.setText("Nome:");
 
@@ -70,14 +73,6 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
         txtProductQtd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtProductQtdActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("Descrição:");
-
-        txtProductDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProductDescActionPerformed(evt);
             }
         });
 
@@ -136,33 +131,29 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(btnUpdateProduct))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))
-                                .addGap(40, 40, 40))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel5))
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtProductId)
-                                .addComponent(txtProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtProductQtd, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtProductPrice)
-                                .addComponent(txtProductDesc)))))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtProductId)
+                        .addComponent(txtProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtProductQtd, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtProductPrice)))
                 .addGap(18, 18, 18))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnUpdateProduct)
+                .addGap(168, 168, 168))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,13 +175,9 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtProductQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtProductDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(btnUpdateProduct)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,10 +195,6 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
         // TODO btnUpdateProduct handling code here:
     }//GEN-LAST:event_txtProductQtdActionPerformed
 
-    private void txtProductDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductDescActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtProductDescActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         new ViewListProduct().setVisible(true);
@@ -220,38 +203,35 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
 
     private void btnUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProductActionPerformed
         // TODO add your handling code here:
-        if(txtProductId.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "O Id do produto não pode estar vazio!");
-        }
-        else if(txtProductId.getText().matches("[^0-9.]+")){
-            JOptionPane.showMessageDialog(this, "Por favor insira apenas números no ID do produto!");
-        }
-        else if(txtProductName.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "O Nome do produto não pode estar vazio!");
-        }
-        else if(txtProductPrice.getText().isEmpty()){
+     
+        if(txtProductPrice.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "O preço do produto não pode estar vazio");
         }
-        else if(txtProductPrice.getText().matches("[^0-9.]+")){
+        else if(txtProductPrice.getText().matches("[^0-9,]+")){
             JOptionPane.showMessageDialog(this, "Por favor insira apenas números no preço do produto");
-        }
-         else if(txtProductDesc.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "A descrição do produto não pode ser vazia");
-        }
-        else if(txtProductQtd.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "A quantidade de produtos não pode ser vazia");
         }
         else {
             try {
-                int retorno = Integer.parseInt(txtProductQtd.getText());
+                int productQtd = Integer.parseInt(txtProductQtd.getText());
+                float productPrice = Float.parseFloat(txtProductPrice.getText().replaceAll(",", "."));
+                 
+                ProductModel productModel = new ProductModel();
+                productModel.setId(Integer.parseInt(txtProductId.getText()));
+                productModel.setNome(txtProductName.getText());
+                productModel.setPreco(productPrice);
+                productModel.setQtd(productQtd);
                 
-                ProdutosModel objProdutos = new ProdutosModel();
+                ProductValidation productValidation = new ProductValidation();
+                boolean nameIsValid = productValidation.ValidateProductName(productModel);
+                boolean qtdIsValid = productValidation.ValidateProductQtd(productModel);
                 
-                
-                
-                
-                if(retorno < 0){
-                 JOptionPane.showMessageDialog(this, "Por favor insira numeros positivos na quantidade");
+                if(!nameIsValid && !qtdIsValid){
+                    ProductDAO productDAO = new ProductDAO();
+                    productDAO.UpdateProduct(productModel);
+                    
+                    JOptionPane.showMessageDialog(this, "Produto Alterado com sucesso!");
+                    new ViewListProduct().setVisible(true);
+                    dispose();
                 }
             } catch (Exception e) {
                 //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
@@ -296,6 +276,14 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
         });
     }
 
+    public void CarregarDados(ProductModel productModel){
+        txtProductId.setText(Integer.toString(productModel.getId()));
+        txtProductName.setText(productModel.getNome());
+        txtProductPrice.setText(Float.toString(productModel.getPreco()));
+        txtProductQtd.setText(Integer.toString(productModel.getQtd()));
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnUpdateProduct;
     private javax.swing.JButton jButton3;
@@ -303,10 +291,8 @@ public class ViewUpdateProduct extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtProductDesc;
     private javax.swing.JTextField txtProductId;
     private javax.swing.JTextField txtProductName;
     private javax.swing.JTextField txtProductPrice;
