@@ -182,8 +182,6 @@ public class ViewMenu extends javax.swing.JFrame {
 
     private void btnBackListUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListUserActionPerformed
         // TODO add your handling code here:
-        new ViewLogin().setVisible(true);
-        dispose();
     }//GEN-LAST:event_btnBackListUserActionPerformed
 
     private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed

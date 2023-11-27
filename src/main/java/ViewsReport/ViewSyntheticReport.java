@@ -4,7 +4,11 @@
  */
 package ViewsReport;
 
+import DAO.SaleDAO;
+import Model.SaleModel;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +21,7 @@ public class ViewSyntheticReport extends javax.swing.JFrame {
      */
     public ViewSyntheticReport() {
         initComponents();
+        ListarDados();
     }
 
     /**
@@ -31,14 +36,8 @@ public class ViewSyntheticReport extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnBackMenu = new javax.swing.JButton();
-        btnSearchProduct = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        btnSearchSale = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        txtCpfClient = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtDateSale = new javax.swing.JTextField();
+        table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,17 +78,7 @@ public class ViewSyntheticReport extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        btnSearchProduct.setBackground(new java.awt.Color(255, 51, 0));
-        btnSearchProduct.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSearchProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnSearchProduct.setText("Limpar Filtros");
-        btnSearchProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchProductActionPerformed(evt);
-            }
-        });
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -97,67 +86,28 @@ public class ViewSyntheticReport extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Nome Cliente", "Valor Total", "Data de venda "
+                "CPF cliente", "Nome Produto", "Valor Produto"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-
-        btnSearchSale.setBackground(new java.awt.Color(71, 71, 135));
-        btnSearchSale.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSearchSale.setForeground(new java.awt.Color(255, 255, 255));
-        btnSearchSale.setText("Procurar");
-        btnSearchSale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchSaleActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("CPF do cliente");
-
-        jLabel3.setText("Data");
+        jScrollPane1.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCpfClient, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(327, 327, 327)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(txtDateSale, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSearchSale)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSearchProduct))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 963, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 963, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDateSale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCpfClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearchSale)
-                    .addComponent(btnSearchProduct))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(58, 58, 58)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,29 +118,6 @@ public class ViewSyntheticReport extends javax.swing.JFrame {
         new com.mycompany.p.i.ViewMenu().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackMenuActionPerformed
-
-    private void btnSearchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchProductActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSearchProductActionPerformed
-
-    private void btnSearchSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSaleActionPerformed
-        // TODO add your handling code here:
-        
-       if(!txtCpfClient.getText().isEmpty()){
-            try {
-                int retorno = Integer.parseInt(txtCpfClient.getText());
-            } catch (Exception e) {
-                //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
-                JOptionPane.showMessageDialog(this, "Por favor insira apenas números no CPF");
-            }
-        }
-        else if(!txtDateSale.getText().isEmpty()){
-            
-        }
-        else {
-          JOptionPane.showMessageDialog(this, "Por favor preencha algum dos filtros para fazer a busca");
-        }
-    }//GEN-LAST:event_btnSearchSaleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,18 +153,33 @@ public class ViewSyntheticReport extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void ListarDados(){
+         try {
+            SaleDAO saleDAO = new SaleDAO();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<SaleModel> array = saleDAO.ReadSale();
+            
+            for(int num = 0; num < array.size(); num ++){
+                model.addRow(new Object[]{
+                    array.get(num).getCpf(),
+                    array.get(num).getProductName(),
+                    array.get(num).getProductPrice(),
+
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackMenu;
-    private javax.swing.JButton btnSearchProduct;
-    private javax.swing.JButton btnSearchSale;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtCpfClient;
-    private javax.swing.JTextField txtDateSale;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

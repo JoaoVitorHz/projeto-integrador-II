@@ -4,7 +4,11 @@
  */
 package ViewsReport;
 
+import DAO.SaleDAO;
+import Model.SaleModel;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +21,7 @@ public class ViewAnalyticalReport extends javax.swing.JFrame {
      */
     public ViewAnalyticalReport() {
         initComponents();
+        ListarDados();
     }
 
     /**
@@ -28,31 +33,13 @@ public class ViewAnalyticalReport extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnClearFilter = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         btnBackMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        txtCodeSale = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtCpfClient = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtDateSale = new javax.swing.JTextField();
-        btnSearchSale = new javax.swing.JButton();
+        table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnClearFilter.setBackground(new java.awt.Color(255, 51, 0));
-        btnClearFilter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnClearFilter.setForeground(new java.awt.Color(255, 255, 255));
-        btnClearFilter.setText("Limpar Filtros");
-        btnClearFilter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearFilterActionPerformed(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(71, 71, 135));
 
@@ -77,7 +64,7 @@ public class ViewAnalyticalReport extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 856, Short.MAX_VALUE)
                 .addComponent(btnBackMenu)
                 .addGap(23, 23, 23))
         );
@@ -91,87 +78,36 @@ public class ViewAnalyticalReport extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Cod. Venda", "Produto", "Quantidade", "Valor Unitario", "Valor Total ", "ID Cliente", "Nome Cliente", "CPF Cliente", "E-Mail Cliente", "Data de venda "
+                "Produto", "Quantidade", "Valor", "CPF Cliente"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jLabel1.setText("Codigo de Venda");
-
-        jLabel2.setText("CPF do cliente");
-
-        jLabel3.setText("Data");
-
-        btnSearchSale.setBackground(new java.awt.Color(71, 71, 135));
-        btnSearchSale.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSearchSale.setForeground(new java.awt.Color(255, 255, 255));
-        btnSearchSale.setText("Procurar");
-        btnSearchSale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchSaleActionPerformed(evt);
-            }
-        });
+        jScrollPane1.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(txtCodeSale, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(txtCpfClient, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(txtDateSale, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSearchSale)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClearFilter))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1087, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1087, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodeSale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCpfClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDateSale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearchSale)
-                    .addComponent(btnClearFilter))
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,34 +118,6 @@ public class ViewAnalyticalReport extends javax.swing.JFrame {
         new com.mycompany.p.i.ViewMenu().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackMenuActionPerformed
-
-    private void btnClearFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearFilterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnClearFilterActionPerformed
-
-    private void btnSearchSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSaleActionPerformed
-        // TODO add your handling code here:
-        if(!txtCodeSale.getText().isEmpty()){
-            if(!txtCodeSale.getText().matches("[^0-9.]+")){
-                JOptionPane.showMessageDialog(this, "Por favor insira apenas numeros no código de venda");
-            }
-        }
-        else if(!txtCpfClient.getText().isEmpty()){
-            try {
-                int retorno = Integer.parseInt(txtCpfClient.getText());
-            } catch (Exception e) {
-                //Usuário não digitou inteiros. Trato o erro sem travar a aplicação
-                JOptionPane.showMessageDialog(this, "Por favor insira apenas números no CPF");
-            }
-        }
-        else if(!txtDateSale.getText().isEmpty()){
-            
-        }
-        else {
-          JOptionPane.showMessageDialog(this, "Por favor preencha algum dos filtros para fazer a busca");
-        }
-        
-    }//GEN-LAST:event_btnSearchSaleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,19 +154,33 @@ public class ViewAnalyticalReport extends javax.swing.JFrame {
         });
     }
 
+    
+    public void ListarDados(){
+         try {
+            SaleDAO saleDAO = new SaleDAO();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<SaleModel> array = saleDAO.ReadSale();
+            
+            for(int num = 0; num < array.size(); num ++){
+                model.addRow(new Object[]{
+                    array.get(num).getProductName(),
+                    array.get(num).getProductPrice(),
+                    array.get(num).getQtd(),
+                    array.get(num).getCpf(),
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackMenu;
-    private javax.swing.JButton btnClearFilter;
-    private javax.swing.JButton btnSearchSale;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtCodeSale;
-    private javax.swing.JTextField txtCpfClient;
-    private javax.swing.JTextField txtDateSale;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }
