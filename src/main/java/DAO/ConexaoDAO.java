@@ -12,9 +12,15 @@ import javax.swing.JOptionPane;
  */
 
 /**
- *
- * @author vitor
+ * @author Ana Karolyne da Silva
+ * @author Danilo dos Santos Barbosa Martins
+ * @author Jailson Jorge da Silva
+ * @author João Vitor Araujo de Matos
+ * @author Leonardo Feitosa da Silva
+ * @author Luana Figueiredo de Andrade Caboz
+ * @author Thomaz Gabriel Azevedo Oliveira  
  */
+
 public class ConexaoDAO {
     
     public Connection conectarDB(){
